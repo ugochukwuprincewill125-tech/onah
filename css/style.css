@@ -1,0 +1,104 @@
+/* ===== Colours (change here to re-theme) ===== */
+:root {
+  --bg: #0b0720;
+  --violet: #7c3aed;
+  --pink: #ff4fa3;
+  --gold: #ffd34d;
+  --cyan: #38e1ff;
+  --text: #fff;
+  --card: rgba(255, 255, 255, 0.1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: radial-gradient(circle at 50% 0%, #2a1470 0%, var(--bg) 60%) fixed;
+  color: var(--text);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+#stars { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.star { position: absolute; background: #fff; border-radius: 50%; }
+#fx { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 50; pointer-events: none; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 20;
+  display: flex; gap: 6px; justify-content: center; align-items: center;
+  padding: 10px; background: rgba(11, 7, 32, 0.8); backdrop-filter: blur(8px);
+}
+nav a { color: #fff; text-decoration: none; padding: 6px 12px; border-radius: 20px; font-size: 14px; }
+nav a:hover { background: var(--violet); }
+nav button { background: var(--pink); border: 0; color: #fff; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 16px; }
+
+.section { position: relative; z-index: 1; min-height: 100vh; padding: 90px 20px 50px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
+.title { font-size: 2.2rem; color: var(--gold); }
+.sub { color: var(--cyan); }
+.hidden { display: none !important; }
+.note { font-size: 13px; color: #ddd; max-width: 380px; }
+
+/* Landing */
+.hero .small-title { color: var(--cyan); letter-spacing: 3px; text-transform: uppercase; }
+.hero h1 { font-size: clamp(2.6rem, 9vw, 6rem); color: var(--gold); text-shadow: 0 0 25px var(--pink); }
+.hero h1 span { display: inline-block; }
+.hero h2 { font-size: clamp(1.8rem, 6vw, 3.4rem); color: var(--pink); }
+
+.btn {
+  background: linear-gradient(90deg, var(--violet), var(--pink)); color: #fff; border: 0;
+  padding: 14px 30px; border-radius: 40px; font-size: 1.05rem; cursor: pointer;
+  box-shadow: 0 6px 20px rgba(255, 79, 163, 0.4); transition: transform 0.2s;
+}
+.btn:hover { transform: scale(1.06); }
+
+.card { background: var(--card); border: 2px solid var(--gold); border-radius: 16px; padding: 20px 26px; max-width: 520px; font-size: 1.15rem; }
+
+/* Gallery */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; width: 100%; max-width: 900px; }
+.gallery figure { cursor: pointer; border-radius: 14px; overflow: hidden; background: var(--card); border: 2px solid var(--violet); transition: transform 0.3s; }
+.gallery figure:hover { transform: translateY(-6px) rotate(-1deg); border-color: var(--gold); }
+.gallery img { width: 100%; height: 170px; object-fit: cover; display: block; }
+.gallery figcaption { padding: 8px; font-size: 14px; }
+#lightbox { position: fixed; inset: 0; z-index: 40; background: rgba(0, 0, 0, 0.9); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 20px; }
+#lightbox img { max-width: 92%; max-height: 70vh; border-radius: 12px; }
+#lightbox button { background: var(--violet); color: #fff; border: 0; padding: 10px 18px; border-radius: 30px; font-size: 16px; cursor: pointer; }
+#lightbox .row { display: flex; gap: 10px; }
+
+/* Music */
+.player { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.bars { display: flex; gap: 6px; align-items: flex-end; height: 80px; }
+.bars i { display: block; width: 14px; height: 12px; border-radius: 6px; background: linear-gradient(var(--cyan), var(--pink)); }
+.vol { display: flex; gap: 10px; align-items: center; }
+.spotify-playlist { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 600px; margin-top: 12px; }
+.spotify-playlist iframe { width: 100%; height: 152px; border: 0; border-radius: 12px; }
+
+/* Gift */
+.gift { position: relative; width: 150px; height: 150px; background: none; border: 0; cursor: pointer; }
+.gift .box { position: absolute; bottom: 0; left: 10px; width: 130px; height: 90px; background: var(--pink); border-radius: 6px; }
+.gift .lid { position: absolute; top: 28px; left: 0; width: 150px; height: 36px; background: var(--violet); border-radius: 6px; z-index: 2; transition: transform 0.6s; transform-origin: left bottom; }
+.gift .ribbon { position: absolute; bottom: 0; left: 62px; width: 26px; height: 126px; background: var(--gold); z-index: 3; top: 28px; }
+.gift.open .lid { transform: translateY(-40px) rotate(-25deg); }
+.gift.open .ribbon { height: 90px; top: 60px; }
+
+/* Letter */
+.envelope { position: relative; width: 230px; height: 150px; background: var(--pink); border: 0; border-radius: 8px; cursor: pointer; }
+.envelope .flap { position: absolute; top: 0; left: 0; border-left: 115px solid transparent; border-right: 115px solid transparent; border-top: 85px solid var(--violet); transform-origin: top; transition: transform 0.6s; }
+.envelope .heart { position: absolute; top: 55px; left: 0; right: 0; font-size: 34px; color: var(--gold); }
+.envelope.open .flap { transform: rotateX(180deg); }
+.paper { background: #fff8e1; color: #3a2a12; max-width: 560px; padding: 26px 30px; border-radius: 6px; text-align: left; font-family: Georgia, serif; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
+.paper p { margin-bottom: 14px; opacity: 0; animation: fadeUp 0.9s forwards; }
+
+/* Constellation */
+#sky { width: 100%; max-width: 760px; background: rgba(0, 0, 0, 0.35); border: 2px solid var(--violet); border-radius: 16px; cursor: pointer; touch-action: manipulation; }
+.wish { min-height: 70px; }
+
+/* Finale */
+.cake { position: relative; width: 200px; height: 190px; margin-top: 40px; }
+.tier { position: absolute; left: 50%; transform: translateX(-50%); border-radius: 10px; }
+.t1 { bottom: 0; width: 200px; height: 70px; background: var(--pink); border-top: 12px solid #fff; }
+.t2 { bottom: 70px; width: 140px; height: 55px; background: var(--violet); border-top: 12px solid #fff; }
+.candle { position: absolute; bottom: 125px; width: 10px; height: 40px; background: var(--gold); border-radius: 3px; }
+.candle:nth-child(1) { left: 62px; } .candle:nth-child(2) { left: 95px; } .candle:nth-child(3) { left: 128px; }
+.flame { position: absolute; top: -22px; left: -3px; width: 16px; height: 22px; background: radial-gradient(#fff, var(--gold) 50%, #ff7a00); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; opacity: 0; transition: opacity 0.3s; }
+.cake.lit .flame { opacity: 1; animation: flicker 0.4s infinite alternate; }
+.finale-msg { font-size: clamp(1.6rem, 5vw, 2.8rem); color: var(--gold); text-shadow: 0 0 20px var(--pink); max-width: 700px; }
+
+#footer { position: relative; z-index: 1; text-align: center; padding: 30px; color: #ccc; }

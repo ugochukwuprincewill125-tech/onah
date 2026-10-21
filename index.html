@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Birthday!</title>
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div id="stars" aria-hidden="true"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <nav id="nav">
+    <a href="#home">Home</a>
+    <a href="#memories">Memories</a>
+    <a href="#music">Music</a>
+    <a href="#gift">Gift</a>
+    <a href="#letter">Letter</a>
+    <a href="#wishes">Wishes</a>
+    <a href="#finale">Finale</a>
+    <button id="navMusic" type="button" aria-label="Toggle music">&#9835;</button>
+  </nav>
+
+  <header id="home" class="section hero">
+    <p class="small-title" id="heroKicker"></p>
+    <h1 id="heroTitle" aria-label="Happy Birthday"></h1>
+    <h2 id="heroName"></h2>
+    <p id="heroTagline"></p>
+    <button id="enterBtn" class="btn" type="button">Enter the Universe &#10024;</button>
+    <div class="balloons" aria-hidden="true">
+      <span class="balloon b1"></span><span class="balloon b2"></span><span class="balloon b3"></span>
+      <span class="balloon b4"></span><span class="balloon b5"></span>
+    </div>
+  </header>
+
+  <section id="memories" class="section reveal">
+    <h2 class="title">Our Memories</h2>
+    <p class="sub">Tap a picture to see it bigger.</p>
+    <div id="galleryGrid" class="gallery"></div>
+  </section>
+
+  <section id="music" class="section reveal">
+    <h2 class="title">Your Song</h2>
+    <p class="sub" id="songName"></p>
+    <div class="player">
+      <div class="bars" id="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <button id="playBtn" class="btn" type="button">&#9654; Play</button>
+      <label class="vol">Volume
+        <input id="volume" type="range" min="0" max="1" step="0.05" value="0.6">
+      </label>
+      <p id="musicNote" class="note"></p>
+    </div>
+    <div class="spotify-playlist">
+      <h3 class="sub">Victoria's Birthday Playlist</h3>
+      <p class="note">Your featured song will try to play when the page opens. If playback is blocked, press Play below. Spotify and an internet connection are required.</p>
+      <iframe
+        src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v?utm_source=generator&theme=0&autoplay=1"
+        title="Victoria's featured birthday song"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="eager"></iframe>
+      <iframe
+        src="https://open.spotify.com/embed/track/2qYlRuyYrwoF1rKCrduDA7?utm_source=generator&theme=0"
+        title="Spotify song 1 for Victoria"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+      <iframe
+        src="https://open.spotify.com/embed/track/3s1KwrLP0NlFWiWbjz6bfQ?utm_source=generator&theme=0"
+        title="Spotify song 2 for Victoria"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+      <iframe
+        src="https://open.spotify.com/embed/track/46iVAqRXnGk0uaBLY9Ztry?utm_source=generator&theme=0"
+        title="Spotify song 3 for Victoria"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <section id="gift" class="section reveal">
+    <h2 class="title">A Little Surprise</h2>
+    <p class="sub">Tap the gift to open it.</p>
+    <button id="giftBox" class="gift" type="button" aria-label="Open the gift">
+      <span class="lid"></span><span class="box"></span><span class="ribbon"></span>
+    </button>
+    <div id="giftMessage" class="card hidden"></div>
+  </section>
+
+  <section id="letter" class="section reveal">
+    <h2 class="title">A Letter For You</h2>
+    <p class="sub">Tap the envelope.</p>
+    <button id="envelope" class="envelope" type="button" aria-label="Open the letter">
+      <span class="flap"></span><span class="heart">&#10084;</span>
+    </button>
+    <article id="paper" class="paper hidden"></article>
+  </section>
+
+  <section id="wishes" class="section reveal">
+    <h2 class="title">Wishes in the Stars</h2>
+    <p class="sub">Tap each glowing star to light up your constellation.</p>
+    <canvas id="sky" height="420"></canvas>
+    <div id="wishText" class="card wish">Tap a star...</div>
+  </section>
+
+  <section id="finale" class="section reveal">
+    <h2 class="title">Make a Wish</h2>
+    <div class="cake" aria-hidden="true">
+      <span class="candle"><i class="flame"></i></span>
+      <span class="candle"><i class="flame"></i></span>
+      <span class="candle"><i class="flame"></i></span>
+      <span class="tier t1"></span><span class="tier t2"></span>
+    </div>
+    <button id="candleBtn" class="btn" type="button">Light the candles</button>
+    <h2 id="finaleMsg" class="finale-msg hidden"></h2>
+  </section>
+
+  <footer id="footer"></footer>
+
+  <script src="js/content.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/constellation.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
